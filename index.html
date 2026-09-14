@@ -1,1 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VAADI | Premium Kashmiri Walnuts</title>
 
+  <style>
+    :root{
+      --brown:#2f1a10;
+      --gold:#d3911d;
+      --cream:#fff8ee;
+      --white:#ffffff;
+      --green:#294b3b;
+      --text:#33231b;
+      --soft:#f2e3cd;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--cream);
+      color:var(--text);
+      line-height:1.5;
+    }
+
+    a{text-decoration:none}
+
+    header{
+      background:var(--brown);
+      color:white;
+      padding:16px 7%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-family:Georgia,serif;
+      font-size:30px;
+      font-weight:bold;
+      letter-spacing:4px;
+      color:white;
+    }
+
+    .logo span{color:#f5c765}
+
+    .nav{
+      font-size:13px;
+      color:#f5c765;
+      font-weight:bold;
+    }
+
+    .hero{
+      min-height:360px;
+      padding:65px 7%;
+      display:flex;
+      align-items:center;
+      color:white;
+      background:
+        linear-gradient(120deg,rgba(47,26,16,.97),rgba(41,75,59,.92)),
+        var(--brown);
+    }
+
+    /* BACKGROUND HERE:
+       Later, you can add your Kashmir or walnut background image. */
+
+    .hero h1{
+      font-family:Georgia,serif;
+      font-size:clamp(42px,9vw,78px);
+      line-height:1.05;
+      margin-bottom:14px;
+    }
+
+    .hero p{
+      max-width:560px;
+      color:#fff1d3;
+      font-size:15px;
+      margin-bottom:20px;
+    }
+
+    .button{
+      display:inline-block;
+      border-radius:25px;
+      padding:13px 20px;
+      background:var(--gold);
+      color:white;
+      font-weight:bold;
+      font-size:13px;
+    }
+
+    .trust{
+      background:var(--green);
+      color:white;
+      padding:18px 7%;
+      text-align:center;
+      font-size:12px;
+      font-weight:bold;
+    }
+
+    .trust span{
+      color:#f5c765;
+      margin:0 8px;
+    }
+
+    .section{
+      width:min(1100px,92%);
+      margin:auto;
+      padding:55px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    .section-title p{
+      color:var(--gold);
+      font-size:11px;
+      font-weight:bold;
+      letter-spacing:2px;
+      margin-bottom:8px;
+    }
+
+    .section-title h2{
+      color:var(--brown);
+      font-family:Georgia,serif;
+      font-size:38px;
+    }
+
+    .products{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:22px;
+    }
+
+    .card{
+      background:white;
+      border:1px solid #ead8bf;
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 8px 22px rgba(47,26,16,.08);
+    }
+
+    .product-image{
+      height:185px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      text-align:center;
+      padding:20px;
+      background:linear-gradient(135deg,#f7e9d5,#fffaf2);
+    }
+
+    /* PRODUCT IMAGE HERE:
+       Later replace this placeholder with your real walnut product photo. */
+
+    .product-icon{
+      width:62px;
+      height:62px;
+      border-radius:50%;
+      background:var(--brown);
+      color:#f5c765;
+      display:grid;
+      place-items:center;
+      font-size:30px;
+      margin-bottom:10px;
+    }
+
+    .product-image small{
+      color:var(--brown);
+      font-weight:bold;
+      font-size:10px;
+      letter-spacing:1px;
+    }
+
+    .card-content{
+      padding:22px;
+    }
+
+    .card h3{
+      font-family:Georgia,serif;
+      color:var(--brown);
+      font-size:28px;
+      margin-bottom:8px;
+    }
+
+    .desc{
+      color:#78675b;
+      font-size:13px;
+      min-height:40px;
+      margin-bottom:18px;
+    }
+
+    .price-list{
+      border-top:1px solid #ead8bf;
+      margin-bottom:18px;
+    }
+
+    .price-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:13px 0;
+      border-bottom:1px solid #ead8bf;
+    }
+
+    .weight{
+      color:var(--brown);
+      font-size:14px;
+      font-weight:bold;
+    }
+
+    .old-price{
+      color:#9c8b7e;
+      text-decoration:line-through;
+      font-size:12px;
+      margin-right:7px;
+    }
+
+    .sale-price{
+      color:var(--green);
+      font-size:17px;
+      font-weight:bold;
+    }
+
+    .discount{
+      display:inline-block;
+      margin-left:5px;
+      font-size:9px;
+      color:white;
+      background:var(--gold);
+      padding:3px 6px;
+      border-radius:8px;
+      vertical-align:middle;
+    }
+
+    .order{
+      width:100%;
+      text-align:center;
+      background:var(--brown);
+      color:white;
+      border-radius:10px;
+      padding:13px;
+      display:block;
+      font-size:13px;
+      font-weight:bold;
+    }
+
+    .order:hover{background:var(--green)}
+
+    .future{
+      background:var(--soft);
+      text-align:center;
+      padding:42px 20px;
+    }
+
+    .future h2{
+      color:var(--brown);
+      font-family:Georgia,serif;
+      font-size:32px;
+      margin-bottom:10px;
+    }
+
+    .future p{
+      color:#78675b;
+      max-width:600px;
+      margin:auto;
+      font-size:14px;
+    }
+
+    footer{
+      background:var(--brown);
+      text-align:center;
+      color:#f7e8cc;
+      padding:28px 10px;
+      font-size:12px;
+    }
+
+    @media(max-width:650px){
+      header{padding:14px 6%}
+      .logo{font-size:25px}
+      .nav{font-size:11px}
+      .hero{min-height:330px;padding:55px 7%}
+      .hero h1{font-size:47px}
+      .products{grid-template-columns:1fr}
+      .section{padding:42px 0}
+      .trust{line-height:2}
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <!-- LOGO HERE:
+         Later replace VAADI text with your own logo image. -->
+    <div class="logo">VAA<span>DI</span></div>
+    <div class="nav">Premium Kashmiri Products</div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Pure Kashmiri<br>Walnuts.</h1>
+      <p>
+        Carefully selected Kashmiri walnuts from VAADI.
+        Available with shell and without shell (walnut giri).
+      </p>
+      <a class="button" href="#products">View Walnut Collection</a>
+    </div>
+  </section>
+
+  <div class="trust">
+    <span>✦</span> Kashmiri Origin
+    <span>✦</span> Carefully Selected
+    <span>✦</span> Fresh Packing
+    <span>✦</span> Premium Quality
+  </div>
+
+  <section class="section" id="products">
+
+    <div class="section-title">
+      <p>VAADI WALNUT COLLECTION</p>
+      <h2>Choose Your Walnuts</h2>
+    </div>
+
+    <div class="products">
+
+      <div class="card">
+        <div class="product-image">
+          <div class="product-icon">🌰</div>
+          <small>REAL PRODUCT PHOTO COMING SOON</small>
+        </div>
+
+        <div class="card-content">
+          <h3>Walnuts With Shell</h3>
+          <p class="desc">
+            Whole Kashmiri walnuts in their natural shell, selected with care.
+          </p>
+
+          <div class="price-list">
+            <div class="price-row">
+              <span class="weight">250 gm</span>
+              <span>
+                <span class="old-price">₹449</span>
+                <span class="sale-price">₹349</span>
+                <span class="discount">SALE</span>
+              </span>
+            </div>
+
+            <div class="price-row">
+              <span class="weight">500 gm</span>
+              <span>
+                <span class="old-price">₹799</span>
+                <span class="sale-price">₹699</span>
+                <span class="discount">SALE</span>
+              </span>
+            </div>
+
+            <div class="price-row">
+              <span class="weight">1 kg</span>
+              <span>
+                <span class="old-price">₹1399</span>
+                <span class="sale-price">₹1299</span>
+                <span class="discount">SALE</span>
+              </span>
+            </div>
+          </div>
+
+          <a class="order" href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank">
+            Order on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="product-image">
+          <div class="product-icon">◒</div>
+          <small>REAL PRODUCT PHOTO COMING SOON</small>
+        </div>
+
+        <div class="card-content">
+          <h3>Walnut Giri<br>(Without Shell)</h3>
+          <p class="desc">
+            Fresh Kashmiri walnut kernels, ready to eat and naturally delicious.
+          </p>
+
+          <div class="price-list">
+            <div class="price-row">
+              <span class="weight">250 gm</span>
+              <span>
+                <span class="old-price">₹449</span>
+                <span class="sale-price">₹349</span>
+                <span class="discount">SALE</span>
+              </span>
+            </div>
+
+            <div class="price-row">
+              <span class="weight">500 gm</span>
+              <span>
+                <span class="old-price">₹799</span>
+                <span class="sale-price">₹699</span>
+                <span class="discount">SALE</span>
+              </span>
+            </div>
+
+            <div class="price-row">
+              <span class="weight">1 kg</span>
+              <span>
+                <span class="old-price">₹1399</span>
+                <span class="sale-price">₹1299</span>
+                <span class="discount">SALE</span>
+              </span>
+            </div>
+          </div>
+
+          <a class="order" href="https://wa.me/YOUR_WHATSAPP_NUMBER" target="_blank">
+            Order on WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="future">
+    <h2>More VAADI Products Coming Soon</h2>
+    <p>
+      Kashmiri almonds, Pampore saffron, honey, kahwa, shilajit,
+      rajma and VAADI bakery desserts will be added soon.
+    </p>
+  </section>
+
+  <footer>
+    <div class="logo">VAA<span>DI</span></div>
+    <p>Pure Kashmir, Delivered to You.</p>
+    <p>© 2026 VAADI. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
